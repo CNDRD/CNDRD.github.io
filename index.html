@@ -1,24 +1,103 @@
-<script type="text/javascript">
-  function changeBackground() {
-  			//change color every frame
-  			//initialise colors ( hue, lightness)
-  			var hue = 360;
-  			var light = 0;
+<style media="screen">
+  $bg-color: #020202;
+$text-color: #f2f2f2;
+$accent: #c82222;
+$green-leaf: #34da96;
+$blue-space: #1e234d;
 
-  			function changeHue (){
-  				var col1 = Math.abs((hue % 720) - 360);
-  				var col2 = Math.abs( ( (hue+90) % 720) - 360);
-  				hue++ ;
+$slide-timer: 2.2s;
 
-          //values for light adjustment not used
-  				var light1 = Math.abs( (light % 40) - 20)+60;
-  				var light2 = Math.abs( ( (light+10) % 40) - 20)+60;
-  				light++ ;
+@mixin bp() {
+	@media (min-width: 580px) {
+		@content;
+	}
+}
 
-  				document.body.style.background = 'linear-gradient(to right, hsl('+col1 +',70%, 75%) 0%,hsl('+col2 +',90%,75%) 100%)';
-  			}
-  			setInterval	(changeHue, 64);
-  		}
-  		changeBackground();
+*,
+*::before,
+*::after {
+	box-sizing: content-box;
+}
 
-</script>
+body {
+	margin: 0;
+	padding: 0;
+	background-color: $bg-color;
+	background-image: linear-gradient(to top right, $green-leaf 0%, $blue-space 100%);
+	color: $text-color;
+	font-family: 'Lato', Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+}
+
+section.half {
+	position: relative;
+	width: 100%;
+	height: 50vh;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	float: left;
+	width: 50%;
+	height: 100vh;
+}
+
+.big-text {
+	font-size: 40vw;
+	font-weight: 800;
+	opacity: .5;
+
+	position: absolute;
+	top: 50%;
+
+	&.left {
+		left: 0;
+		transform:
+			translate(-100%, -50%)
+			rotateY(180deg);
+		animation: moveInLeft $slide-timer ease-out forwards;
+	}
+
+	&.right {
+		right: 0;
+		transform:
+			translate(100%, -50%)
+			rotateY(0);
+		animation: moveInRight $slide-timer ease-out forwards;
+	}
+}
+
+p {
+	font-size: (16 / 14) * 1rem;
+}
+
+@keyframes moveInLeft {
+	0% {
+		transform:
+			translate(-100%, -50%)
+			rotateY(180deg);
+	}
+	100% {
+		transform:
+			translate(-50%, -50%)
+			rotateY(180deg);
+	}
+}
+
+@keyframes moveInRight {
+	0% {
+		transform:
+			translate(100%, -50%)
+			rotateY(0);
+	}
+	100% {
+		transform:
+			translate(50%, -50%)
+			rotateY(0);
+	}
+}
+</style>
+section.half
+	.big-text.right 404
+section.half
+	.big-text.left 404
