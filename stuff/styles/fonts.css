@@ -1,8 +1,13 @@
 @font-face {
   font-family: RONEOUS_Caps;
-  src: url(../fonts/RONEOUS_Caps.ttf);
-}
+  src: url(../fonts/RONEOUS_Caps.ttf);}
+/*.roneous{font-family: 'RONEOUS_Caps'}*/
 @font-face {
   font-family: TOSTADA;
-  src: url(../fonts/TOSTADA.ttf);
+  src: url(../fonts/TOSTADA.ttf);}
+/*.roneous{font-family: 'TOSTADA'}*/
+@font-face {
+  font-family: Colus;
+  src: url(../fonts/Colus-Regular.ttf);}
 }
+/*.colus{font-family: 'Colus'}*/
