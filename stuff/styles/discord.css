@@ -8,7 +8,7 @@ body{
   transform: translate(-50%, -50%);
 }
 .text{
-  font-family: 'Colus';
+  font-family: 'Colus', 'Tinos';
   text-align: center;
 }
 a{
