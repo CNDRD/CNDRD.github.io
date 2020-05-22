@@ -1,0 +1,34 @@
+body{
+  background-color: #181b20;
+}
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text{
+  font-family: 'Colus';
+  text-align: center;
+}
+a{
+  display: block;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  font-size: 8vh;
+}
+a::after{
+  content: "";
+  background: white;
+	mix-blend-mode: exclusion;
+  width: calc(100% + 20px);
+  height: 0;
+  position: absolute;
+  bottom: -4px;
+  left: -10px;
+	transition: all .15s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+a:hover::after{
+	height: calc(100% + 8px);
+}
