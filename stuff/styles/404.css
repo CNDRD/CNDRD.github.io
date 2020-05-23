@@ -12,7 +12,7 @@ body{
   background-color: #d8e0ed;
 }
 .poppins{
-  font-family: 'Poppins'
+  font-family: 'Poppins';
 }
 .midel{
   position: absolute;
@@ -20,12 +20,12 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.gradient-big-text:before{
+.gradient-big-text::before{
   text-align: left;
   font-size: 7vh;
   text-transform: uppercase;
   background: linear-gradient(to left, #30CFD0 0%, #330867 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
   content: "keep looking chief";
 }
