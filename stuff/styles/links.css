@@ -1,0 +1,37 @@
+html body{
+  margin: 0;
+  padding: 0;
+  background: #ebecf0;
+}
+.midel{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-evenly;
+  min-height: 100vh;
+  flex-flow: row wrap;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+.neubtn {
+  display: block;
+  height: 60px;
+  background: #ebecf0;
+  border-radius: 60px;
+  padding: 0 50px;
+  margin: 0 40px;
+  line-height: 60px;
+  text-align: center;
+  color: #8a92a5;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Poppins';
+  transition: all 0.2s ease;
+}
+.hiddenbtn:hover {
+  background: linear-gradient(135deg, #ebecf0, #e6e7ec);
+  box-shadow: 8px 8px 16px rgba(0,0,0,0.15), inset 1px 1px 0 rgba(255,255,255,1), -4px -4px 8px rgba(255,255,255,0.6);
+}
+
+/* https://codepen.io/m-codepen/pen/pojqrpa */
