@@ -1,0 +1,213 @@
+:root {
+    --bg: #232323;
+    --text: #eeeeee;
+
+    --chaun-blue-d: hsl(213, 81%, 8%);
+    --hdr: hsl(233, 19%, 9%);
+    --rating: hsl(230, 78%, 31%);
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.switcher {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+.switcher > button {
+    margin: 0 1rem;
+}
+
+.switcher > button {
+    padding: 10px 25px;
+    font-weight: 500;
+    background: transparent;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    border: 2px solid rgb(255, 255, 255);
+    z-index: 1;
+    color: var(--text);
+}
+.switcher > button:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+.switcher > button:hover {
+    color: rgb(0, 0, 0);
+}
+.switcher > button:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+
+
+.cards {
+    padding: 0 5rem 5rem 5rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.cards > div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.cards > div:not(:last-of-type) {
+    margin-bottom: 6rem;
+}
+
+.card {
+    margin: 1rem;
+    font-size: 1.75rem;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.card > img {
+    aspect-ratio: 1 / 1.5;
+    width: 10rem;
+}
+.card > .info {
+    width: 20rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.card > .info > * {
+    vertical-align: baseline;
+}
+
+.card > .info > .name {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0 5px;
+}
+.card > .info > .links {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 5px;
+}
+
+.links > a > img {
+    width: auto;
+    max-height: 1rem;
+    padding: 0 5px;
+}
+
+.links > a > img.tmdb {
+    content: url("https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg");
+    width: 2rem;
+}
+.links > a > img.imdb {
+    content: url("https://ia.media-imdb.com/images/M/MV5BMTk3ODA4Mjc0NF5BMl5BcG5nXkFtZTgwNDc1MzQ2OTE@._V1_.png");
+}
+.links > a > img.trakt {
+    content: url("https://i.imgur.com/2JEPS0y.png");
+}
+
+.half-badges {
+    display: flex;
+}
+.half-badges > [data-badge] {
+    width: 60%;
+}
+.half-badges > [data-badge]:last-of-type {
+    flex-grow: 1;
+}
+
+
+[data-badge] {
+    box-sizing: border-box;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 5px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+    vertical-align: middle;
+    background: var(--hdr);
+    color: var(--text);
+    font-size: .9rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+[data-badge]::after {
+    content: attr(data-badge);
+    margin-right: auto;
+    padding-right: 1rem;
+}
+
+[data-director]::before {
+    content: "🎬";
+    margin-right: auto;
+}
+[data-creator]::before {
+    content: "🎞️";
+    margin-right: auto;
+}
+[data-rating]::before {
+    content: "⭐";
+    margin-right: auto;
+}
+[data-length]::before {
+    content: "⌚";
+    margin-right: auto;
+}
+[data-genres]::before {
+    content: "🪢";
+    margin-right: auto;
+}
+
+@media (max-width: 1000px) {
+    .switcher {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+    .cards {
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+    .cards > div:not(:last-of-type) {
+        margin-bottom: 0;
+    }
+    .card {
+        width: 100%;
+        margin: .5rem .25rem;
+    }
+    .card > .info {
+        width: 100%;
+        padding-left: .5rem;
+    }
+    
+    [data-badge] {
+        font-size: .8rem;
+    }
+    [data-badge]::before{
+        content: "";
+    }
+    [data-badge]::after {
+        padding-right: 0;
+    }
+}
