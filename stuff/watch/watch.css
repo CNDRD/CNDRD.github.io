@@ -72,9 +72,6 @@ html {
     flex-flow: row wrap;
     justify-content: center;
 }
-.cards > div:not(:last-of-type) {
-    margin-bottom: 6rem;
-}
 
 .card {
     margin: 1rem;
