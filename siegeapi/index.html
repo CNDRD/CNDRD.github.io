@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>siegeapi</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div id="header">
+        <h1>siegeapi</h1>
+    </div>
+
+    <div id="version-switcher">
+        <h3>Version:</h3>
+        <select id="version-select">
+            <option value="4">4</option>
+            <option value="3" disabled>3</option>
+            <option value="2" disabled>2</option>
+            <option value="1" disabled>1</option>
+        </select>
+    </div>
+
+    <!-- Auth v1+ -->
+    <div class="class" data-versions="1,2,3,4">
+        <div class="name">Auth</div>
+
+        <div class="params">
+            <ul>
+                <li>email <code><span data-type="str"></span></code> => Ubi account email</li>
+                <li>password <code><span data-type="str"></span></code> => Ubi account password</li>
+                <li>token <code><span data-type="str"></span></code> => Pre-generated token</li>
+            </ul>
+        </div>
+
+        <div class="attrs">
+            <ul>
+                <li>profileid <code><span data-type="str"></span></code></li>
+                <li>userid <code><span data-type="str"></span></code></li>
+            </ul>
+            <div class="comment">
+                Both should be the same 👉 ID of the account used to log in
+            </div>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <li>
+                    <details>
+                        <summary>get_player(name, uid, platform)</summary>
+                        <ul>
+                            <li>name <code><span data-type="str"></span> = <span data-type="None"></span></code></li>
+                            <li>uid <code><span data-type="str"></span> = <span data-type="None"></span></code></li>
+                            <li>platform <code><span data-type="str"></span> = <span data-type="'uplay'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Player"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>get_player_batch(names, uids, platform)</summary>
+                        <ul>
+                            <li>names <code><span data-type="list"></span>[<span data-type="str"></span>] = <span data-type="None"></span></code></li>
+                            <li>uids <code><span data-type="list"></span>[<span data-type="str"></span>] = <span data-type="None"></span></code></li>
+                            <li>platform <code><span data-type="str"></span> = <span data-type="'uplay'"></span></code></li>
+                            <li class="returns"><code><span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Player"></span>]</code></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>close()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>connect()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>get_session()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="aiohttp.ClientSession()"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    
+    <!-- Player v3+ -->
+    <div class="class" data-versions="3,4">
+        <div class="name">Player</div>
+
+        <div class="attrs">
+            <ul>
+                <li>id <code><span data-type="str"></span></code> => Ubi user ID</li>
+                <li>profile_pic_url_146  <code><span data-type="str"></span></code> => 146px×146px profile pic URL</li>
+                <li>profile_pic_url_256  <code><span data-type="str"></span></code> => 256px×256px profile pic URL</li>
+                <li>profile_pic_url_500  <code><span data-type="str"></span></code> => 500px×500px profile pic URL</li>
+                <li>profile_pic_url  <code><span data-type="str"></span></code> => Alias for <code>profile_pic_256</code></li>
+                <li>name <code><span data-type="str"></span></code></li>
+                <li>level <code><span data-type="int"></span></code></li>
+                <li>alpha_pack <code><span data-type="float"></span></code></li>
+                <li>xp <code><span data-type="int"></span></code></li>
+                <li>total_xp <code><span data-type="str"></span></code></li>
+                <li>xp_to_level_up <code><span data-type="str"></span></code></li>
+                <li>total_time_played <code><span data-type="str"></span></code></li>
+                <li>pvp_time_played <code><span data-type="str"></span></code></li>
+                <li>pve_time_played <code><span data-type="str"></span></code></li>
+                <li>ranks <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="dict"></span></code></li>
+                <li>casuals <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="dict"></span></code></li>
+                <li>newcomers <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="dict"></span></code></li>
+                <li>events <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="dict"></span></code></li>
+                <li>deathmatch <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="dict"></span></code></li>
+                <li>weapons <code><span data-cls="Weapons"></span></code></li>
+                <li>trends <code><span data-cls="Trends"></span></code></li>
+                <li>operators <code><span data-cls="Operators"></span></code></li>
+                <li>maps <code><span data-cls="Maps"></span></code></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <!-- set_timespan_dates -->
+                <li>
+                    <details>
+                        <summary>set_timespan_dates(<span data-type="start_date"></span>, <span data-type="end_date"></span>)</summary>
+                        <ul>
+                            <li>start_date <code><span data-type="str"></span></code></li>
+                            <li>end_date <code><span data-type="str"></span></code></li>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Both dates must be in the format <code>YYYY-MM-DD</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_playtime -->
+                <li>
+                    <details>
+                        <summary>load_playtime()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>pvp_time_played</code>, <code>pve_time_played</code> & <code>total_time_played</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_progress -->
+                <li>
+                    <details>
+                        <summary>load_progress()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>alpha_pack</code>, <code>level</code>, <code>xp</code>, <code>total_xp</code> & <code>xp_to_level_up</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_skill_records -->
+                <li>
+                    <details>
+                        <summary>load_skill_records(<span data-type="seasons"></span>, <span data-type="boards"></span>, <span data-type="regions"></span>)</summary>
+                        <ul>
+                            <li>seasons <code><span data-type="list">[<span data-type="int"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li>boards <code><span data-type="list">[<span data-type="str"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li>regions <code><span data-type="list">[<span data-type="str"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>alpha_pack</code>, <code>level</code>, <code>xp</code>, <code>total_xp</code> & <code>xp_to_level_up</code>
+                        </div>
+                        <div class="comment">
+                            Valid seasons are <code>1 - now</code>; Each season is a <code>+1</code> (e.g. <code>Y7S3</code> is <code>27</code>)
+                            <br />
+                            You can also go from <code>-1</code> where <code>-1</code> is the current season
+                        </div>
+                        <div class="comment">
+                            Valid boards: <code>pvp_ranked</code>, <code>pvp_casual</code>, <code>pvp_newcomer</code> & <code>pvp_warmup</code>
+                        </div>
+                        <div class="comment">
+                            Valid regions: <code>emea</code>, <code>ncsa</code>, <code>apac</code> & <code>global</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_ranked -->
+                <li>
+                    <details>
+                        <summary>load_ranked(<span data-type="season"></span>, <span data-type="region"></span>)</summary>
+                        <ul>
+                            <li>season <code><span data-type="int"></span> = <span data-type="-1"></span></code></li>
+                            <li>region <code><span data-type="str"></span> = <span data-type="'emea'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Rank"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>season</code> must be >= to 18 when passing <code>region='global'</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_casual -->
+                <li>
+                    <details>
+                        <summary>load_casual(<span data-type="season"></span>, <span data-type="region"></span>)</summary>
+                        <ul>
+                            <li>season <code><span data-type="int"></span> = <span data-type="-1"></span></code></li>
+                            <li>region <code><span data-type="str"></span> = <span data-type="'emea'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Rank"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>season</code> must be >= to 18 when passing <code>region='global'</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_newcomer -->
+                <li>
+                    <details>
+                        <summary>load_newcomer(<span data-type="season"></span>, <span data-type="region"></span>)</summary>
+                        <ul>
+                            <li>season <code><span data-type="int"></span> = <span data-type="-1"></span></code></li>
+                            <li>region <code><span data-type="str"></span> = <span data-type="'emea'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Rank"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>season</code> must be >= to 18 when passing <code>region='global'</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_events -->
+                <li>
+                    <details>
+                        <summary>load_events(<span data-type="season"></span>, <span data-type="region"></span>)</summary>
+                        <ul>
+                            <li>season <code><span data-type="int"></span> = <span data-type="-1"></span></code></li>
+                            <li>region <code><span data-type="str"></span> = <span data-type="'emea'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Rank"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>season</code> must be >= to 18 when passing <code>region='global'</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_deathmatch -->
+                <li>
+                    <details>
+                        <summary>load_deathmatch(<span data-type="season"></span>, <span data-type="region"></span>)</summary>
+                        <ul>
+                            <li>season <code><span data-type="int"></span> = <span data-type="-1"></span></code></li>
+                            <li>region <code><span data-type="str"></span> = <span data-type="'emea'"></span></code></li>
+                            <li class="returns"><code><span data-cls="Rank"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>season</code> must be >= to 18 when passing <code>region='global'</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_trends -->
+                <li>
+                    <details>
+                        <summary>load_trends()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Trends"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <!-- load_weapons -->
+                <li>
+                    <details>
+                        <summary>load_weapons()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Weapons"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <!-- load_operators -->
+                <li>
+                    <details>
+                        <summary>load_operators(<span data-type="op_about"></span>)</summary>
+                        <ul>
+                            <li>op_about <code><span data-type="bool"></span> = <span data-type="False"></span></code></li>
+                            <li class="returns"><code><span data-cls="Operators"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>op_about = True</code> adds a bunch of extra information about the operator
+                        </div>
+                    </details>
+                </li>
+                <!-- load_maps -->
+                <li>
+                    <details>
+                        <summary>load_maps()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Maps"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    
+    <!-- Rank v2+ -->
+    <div class="class" data-versions="2,3,4">
+        <div class="name">Rank</div>
+
+        <div class="attrs">
+            <ul>
+                <li>kills <code><span data-type="int"></span></code></li>
+                <li>deaths <code><span data-type="int"></span></code></li>
+                <li>last_mmr_change <code><span data-type="int"></span></code> => Last game outcome. No MMR adjustments</li>
+                <li>prev_rank_mmr <code><span data-type="int"></span></code></li>
+                <li>next_rank_mmr <code><span data-type="int"></span></code></li>
+                <li>mmr <code><span data-type="int"></span></code></li>
+                <li>max_mmr <code><span data-type="int"></span></code></li>
+                <li>wins <code><span data-type="int"></span></code></li>
+                <li>losses <code><span data-type="int"></span></code></li>
+                <li>rank_id <code><span data-type="int"></span></code></li>
+                <li>season <code><span data-type="int"></span></code> => e.g.: 27 (Brutal Swarm)</li>
+                <li>rank <code><span data-type="str"></span></code> => e.g.: 'Platinum 3'</li>
+                <li>max_rank_id <code><span data-type="int"></span></code></li>
+                <li>max_rank <code><span data-type="str"></span></code> => e.g.: 'Platinum 2'</li>
+                <li>region <code><span data-type="str"></span></code> => e.g.: 'emea'</li>
+                <li>abandons <code><span data-type="int"></span></code></li>
+                <li>skill_mean <code><span data-type="float"></span></code> => <code>skill_mean × 100 ≈ mmr</code></li>
+                <li>skill_stdev <code><span data-type="float"></span></code> => How certain the game is of the mmr. More games == smaller number</li>
+                <li>season_name <code><span data-type="str"></span></code></li>
+                <li>season_code <code><span data-type="str"></span></code></li>
+            </ul>
+            <div class="comment">
+                <code>max_rank_id</code> & <code>max_rank</code> is only available for ranked
+            </div>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <li>
+                    <details open>
+                        <summary>get_dict()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="dict"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Returns <code>vars(self)</code> (see <a href="https://docs.python.org/3/library/functions.html#vars" target="_blank">vars() in Python Docs</a>)
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <!-- Trends v4+ -->
+    <div class="class" data-versions="4">
+        <div class="name">Trends</div>
+
+        <div class="attrs">
+            <ul>
+                <li>all <code><span data-cls="TrendsGameMode"></span></code></li>
+                <li>casual <code><span data-cls="TrendsGameMode"></span></code></li>
+                <li>ranked <code><span data-cls="TrendsGameMode"></span></code></li>
+                <li>unranked <code><span data-cls="TrendsGameMode"></span></code></li>
+                <li>newcomer <code><span data-cls="TrendsGameMode"></span></code></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <li>
+                    <details open>
+                        <summary>get_timespan_dates()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="dict"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Returns <code>{"start_date": start_date, "end_date": end_date}</code>
+                            <br />
+                            Where <code>start_date</code> and <code>end_date</code> are dates given by the API
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- TrendsGameMode v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">TrendsGameMode</div>
+
+        <div class="attrs">
+            <ul>
+                <li>all <code><span data-cls="TrendData"></span></code></li>
+                <li>attacker <code><span data-cls="TrendData"></span></code></li>
+                <li>defender <code><span data-cls="TrendData"></span></code></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- TrendData v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">TrendData</div>
+
+        <div class="attrs">
+            <ul>
+                <li>win_loss_ratio <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>kill_death_ratio <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>headshot_accuracy <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>kills_per_round <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_with_a_kill <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_with_multi_kill <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_with_opening_kill <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_with_opening_death <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_with_kost <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>rounds_survived <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>ratio_time_alive_per_match <code><span data-cls="TrendDataPoint"></span></code></li>
+                <li>distance_per_round <code><span data-cls="TrendDataPoint"></span></code></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- TrendDataPoint v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">TrendDataPoint</div>
+
+        <div class="attrs">
+            <ul>
+                <li>low <code><span data-type="float"></span></code></li>
+                <li>high <code><span data-type="float"></span></code></li>
+                <li>average <code><span data-type="float"></span></code></li>
+                <li>trend <code><span data-type="dict"></span>[<span data-type="str"></span>: <span data-type="float"></span>]</code></li>
+                <li>actuals <code><span data-type="dict"></span>[<span data-type="str"></span>: <span data-type="float"></span>]</code></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <!-- Weapons v4+ -->
+    <div class="class" data-versions="4">
+        <div class="name">Weapons</div>
+
+        <div class="attrs">
+            <ul>
+                <li>all <code><span data-cls="WeaponsRole"></span></code></li>
+                <li>casual <code><span data-cls="WeaponsRole"></span></code></li>
+                <li>ranked <code><span data-cls="WeaponsRole"></span></code></li>
+                <li>unranked <code><span data-cls="WeaponsRole"></span></code></li>
+                <li>newcomer <code><span data-cls="WeaponsRole"></span></code></li>
+            </ul>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <li>
+                    <details open>
+                        <summary>get_timespan_dates()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="dict"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Returns <code>{"start_date": start_date, "end_date": end_date}</code>
+                            <br />
+                            Where <code>start_date</code> and <code>end_date</code> are dates given by the API
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- WeaponsRole v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">WeaponsRole</div>
+
+        <div class="attrs">
+            <ul>
+                <li>attacker <code><span data-cls="WeaponsGameMode"></span></code></li>
+                <li>defender <code><span data-cls="WeaponsGameMode"></span></code></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- WeaponsGameMode v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">WeaponsGameMode</div>
+
+        <div class="attrs">
+            <ul>
+                <li>attacker <code><span data-type="list"></span>[<span data-cls="Weapon"></span>]</code></li>
+                <li>defender <code><span data-type="list"></span>[<span data-cls="Weapon"></span>]</code></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Weapon v4+ -->
+    <div class="class subclass" data-versions="4">
+        <div class="name">Weapon</div>
+
+        <div class="attrs">
+            <ul>
+                <li>name <code><span data-type="str"></span></code></li>
+                <li>kills <code><span data-type="int"></span></code></li>
+                <li>headshots <code><span data-type="int"></span></code></li>
+                <li>hs_accuracy <code><span data-type="int"></span></code></li>
+                <li>rounds_played <code><span data-type="int"></span></code></li>
+                <li>rounds_won <code><span data-type="float"></span></code></li>
+                <li>rounds_lost <code><span data-type="float"></span></code></li>
+                <li>rounds_with_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_multi_kill <code><span data-type="float"></span></code></li>
+                
+                <li>ubi_url <code><span data-type="str"></span></code> => <code>https://staticctf.akamaized.net/... .png</code></li>
+                <li>imgur_url <code><span data-type="str"></span></code> => e.g.: <code>https://i.imgur.com/XM1aYZ0.png</code></li>
+                <li>type <code><span data-type="str"></span></code> => e.g.: "Marksman Rifle"</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

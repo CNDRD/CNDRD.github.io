@@ -1,0 +1,179 @@
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+@font-face {
+  font-family: "Siege Medium";
+  src: url("siege_medium.otf");
+}
+@font-face {
+  font-family: "Siege Normal";
+  src: url("siege_normal.otf");
+}
+[data-type]::after {
+  content: attr(data-type);
+}
+
+[data-cls]::after {
+  content: attr(data-cls);
+}
+
+[data-type]:not([data-type=""]) {
+  color: rgb(42, 185, 194);
+}
+
+[data-cls] {
+  color: rgb(214, 179, 113);
+}
+
+[data-type=None] {
+  color: rgb(213, 95, 222);
+}
+
+summary [data-type]:not([data-type=""]) {
+  color: rgb(209, 154, 102);
+}
+
+a {
+  color: #573591;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Code";
+}
+
+html {
+  background: rgb(34, 34, 34);
+  color: rgb(242, 242, 242);
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+hr {
+  width: 90vw;
+  border-color: rgb(169, 169, 169);
+  margin-bottom: 1.5rem;
+}
+
+code {
+  font-family: "Fira Code";
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+  background: rgb(50, 50, 50);
+}
+
+.comment {
+  font-style: italic;
+  color: rgb(210, 210, 210);
+  border-left: 0.25rem solid rgb(78, 78, 78);
+  padding: 0.2rem 0.4rem;
+  margin: 0.3rem 0;
+  font-size: 0.8rem;
+  line-height: 1.15rem;
+}
+
+#header {
+  margin-top: 1rem;
+}
+#header h1 {
+  font-variant: small-caps;
+  font-family: "Siege Medium";
+  font-size: 4rem;
+  margin: 0;
+}
+
+#version-switcher {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+#version-switcher select {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-family: "Fira Code";
+  font-size: 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: rgb(34, 34, 34);
+  color: rgb(242, 242, 242);
+  outline: none;
+  cursor: pointer;
+}
+#version-switcher select:hover {
+  background: rgb(50, 50, 50);
+}
+#version-switcher select:focus {
+  background: rgb(50, 50, 50);
+}
+
+.class {
+  border-top: 1px solid rgb(169, 169, 169);
+  padding: 2rem 0;
+  width: 75vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: baseline;
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+.class.subclass {
+  border-top: none;
+}
+.class .name {
+  line-height: 1rem;
+  font-family: "Siege Normal";
+  font-size: 2rem;
+  margin: 0 2rem 1rem 0;
+  align-self: center;
+}
+.class .params::before {
+  content: "params";
+  font-variant: small-caps;
+  text-align: center;
+  padding-left: 1rem;
+}
+.class .attrs::before {
+  content: "attributes";
+  font-variant: small-caps;
+  text-align: center;
+  padding-left: 1rem;
+}
+.class .methods::before {
+  content: "methods";
+  font-variant: small-caps;
+  text-align: center;
+  padding-left: 1rem;
+}
+.class .methods ul {
+  list-style: none;
+}
+.class .methods ul li details {
+  margin-bottom: 0.5rem;
+}
+.class .methods ul li details summary {
+  cursor: pointer;
+  user-select: none;
+}
+.class .methods ul li details ul .returns {
+  padding-left: 1rem;
+}
+.class .methods ul li details ul .returns::marker {
+  content: "returns";
+  font-variant: small-caps;
+  text-align: center;
+  padding-left: 1rem;
+}
+
+/*# sourceMappingURL=index.css.map */

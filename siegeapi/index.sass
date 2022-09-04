@@ -1,0 +1,181 @@
+
+$bg: rgb(34, 34, 34)
+$bg-lighter: rgb(50, 50, 50)
+$txt: rgb(242, 242, 242)
+$txt-darker: rgb(169, 169, 169)
+
+$txt-comment: rgb(210, 210, 210)
+$bg-comment: rgb(78, 78, 78)
+
+$txt-link: #573591
+
+$type-default: rgb(42, 185, 194)
+$type-class: rgb(214, 179, 113)
+$type-none: rgb(213, 95, 222)
+$type-arg: rgb(209, 154, 102)
+
+@font-face
+  font-family: 'Siege Medium'
+  src: url('siege_medium.otf')
+
+@font-face
+  font-family: 'Siege Normal'
+  src: url('siege_normal.otf')
+
+@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css)
+
+
+// Type Badges
+[data-type]::after
+    content: attr(data-type)
+[data-cls]::after
+    content: attr(data-cls)
+
+[data-type]:not([data-type=""])
+    color: $type-default
+[data-cls]
+    color: $type-class
+[data-type="None"]
+    color: $type-none
+summary [data-type]:not([data-type=""])
+    color: $type-arg
+
+// Links
+a
+    color: $txt-link
+    text-decoration: none
+    &:hover
+        text-decoration: underline
+
+html,
+body
+    margin: 0
+    padding: 0
+    font-family: 'Fira Code'
+
+
+html
+    background: $bg
+    color: $txt
+
+body
+    display: flex
+    flex-flow: column
+    align-items: center
+    justify-content: center
+    margin-bottom: 5rem
+
+hr
+    width: 90vw
+    border-color: $txt-darker
+    margin-bottom: 1.5rem
+
+code 
+    font-family: 'Fira Code'
+    padding: 0.1rem 0.25rem
+    border-radius: 0.25rem
+    background: $bg-lighter
+
+.comment
+    font-style: italic
+    color: $txt-comment
+    border-left: 0.25rem solid $bg-comment
+    padding: .2rem .4rem
+    margin: .3rem 0
+    font-size: .8rem
+    line-height: 1.15rem
+
+
+#header
+    margin-top: 1rem
+
+    h1
+        font-variant: small-caps
+        font-family: 'Siege Medium'
+        font-size: 4rem
+        margin: 0
+
+#version-switcher
+    display: flex
+    flex-flow: row
+    align-items: center
+    justify-content: center
+    margin-bottom: 1rem
+
+    select
+        margin: 0.5rem
+        padding: 0.5rem
+        font-family: 'Fira Code'
+        font-size: 1rem
+        border: 0
+        border-radius: 0.5rem
+        background: $bg
+        color: $txt
+        outline: none
+        cursor: pointer
+
+        &:hover
+            background: $bg-lighter
+
+        &:focus
+            background: $bg-lighter
+
+.class
+    border-top: 1px solid $txt-darker
+    padding: 2rem 0
+    width: 75vw
+    display: flex
+    align-items: flex-start
+    justify-content: baseline
+    font-size: 14px
+    line-height: 1.5rem
+
+    &.subclass
+        border-top: none
+
+    .name
+        line-height: 1rem
+        font-family: 'Siege Normal'
+        font-size: 2rem
+        margin: 0 2rem 1rem 0
+        align-self: center
+
+    .params
+        &::before
+            content: 'params'
+            font-variant: small-caps
+            text-align: center
+            padding-left: 1rem
+
+    .attrs
+        &::before
+            content: 'attributes'
+            font-variant: small-caps
+            text-align: center
+            padding-left: 1rem
+
+    .methods
+        &::before
+            content: 'methods'
+            font-variant: small-caps
+            text-align: center
+            padding-left: 1rem
+        ul
+            list-style: none
+
+            li
+                details
+                    margin-bottom: .5rem
+                    summary
+                        cursor: pointer
+                        user-select: none
+
+                    ul
+                        .returns
+                            padding-left: 1rem
+                            &::marker
+                                content: 'returns'
+                                font-variant: small-caps
+                                text-align: center
+                                padding-left: 1rem
+
