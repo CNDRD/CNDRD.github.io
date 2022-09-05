@@ -14,6 +14,8 @@ $type-class: rgb(214, 179, 113)
 $type-none: rgb(213, 95, 222)
 $type-arg: rgb(209, 154, 102)
 
+$breakpoint: 1000px
+
 @font-face
   font-family: 'Siege Medium'
   src: url('siege_medium.otf')
@@ -133,6 +135,17 @@ code
     justify-content: baseline
     font-size: 14px
     transition: background-color .5s ease-out
+
+    @media (max-width: $breakpoint)
+        flex-flow: column
+        align-items: center
+        width: 95%
+
+        .params,
+        .attrs,
+        .methods
+            width: 100%
+            margin-top: 1rem
 
     &.subclass
         border-top: none

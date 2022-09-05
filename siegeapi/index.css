@@ -132,6 +132,19 @@ code {
   font-size: 14px;
   transition: background-color 0.5s ease-out;
 }
+@media (max-width: 1000px) {
+  .class {
+    flex-flow: column;
+    align-items: center;
+    width: 95%;
+  }
+  .class .params,
+.class .attrs,
+.class .methods {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
 .class.subclass {
   border-top: none;
 }
