@@ -12,6 +12,17 @@
             "rating": "❤️"
         },
         {
+            "name": "Top Gun: Maverick",
+            "image": "https://image.tmdb.org/t/p/original/o4dhtrJuvrmHwBe7LYJwoGVPwRq.jpg",
+            "tmdb": "https://www.themoviedb.org/movie/361743-top-gun-maverick",
+            "imdb": "https://www.imdb.com/title/tt1745960",
+            "trakt": "https://trakt.tv/movies/top-gun-maverick-2022",
+            "genres": "Action, Drama",
+            "dir_cre": "Joseph Kosinski",
+            "length": "2h 11m",
+            "rating": "❤️"
+        },
+        {
             "name": "Pelíšky",
             "image": "https://www.themoviedb.org/t/p/original/pcmeM8epUgYWlxSxkzQEzp7PJ4N.jpg",
             "tmdb": "https://www.themoviedb.org/movie/15387-pel-ky",
@@ -155,17 +166,6 @@
             "rating": "9"
         },
         {
-            "name": "Don't Look Up",
-            "image": "https://www.themoviedb.org/t/p/original/th4E1yqsE8DGpAseLiUrI60Hf8V.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/646380-don-t-look-up",
-            "imdb": "https://www.imdb.com/title/tt11286314",
-            "trakt": "https://trakt.tv/movies/don-t-look-up-2021",
-            "genres": "Comedy, Drama, Sci-Fi",
-            "dir_cre": "Adam McKay",
-            "length": "2h 18m",
-            "rating": "8.5"
-        },
-        {
             "name": "Christopher Robin",
             "image": "https://www.themoviedb.org/t/p/original/dtw34yFcPml9R6BmdGqOyKeHM0n.jpg",
             "tmdb": "https://www.themoviedb.org/movie/420814-christopher-robin",
@@ -287,28 +287,6 @@
             "rating": "9.5"
         },
         {
-            "name": "The Grinch",
-            "image": "https://www.themoviedb.org/t/p/original/gpkHvkCtZOeCQ2DelnJ2LB1WjZ5.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/360920-the-grinch",
-            "imdb": "https://www.imdb.com/title/tt2709692",
-            "trakt": "https://trakt.tv/movies/the-grinch-2018",
-            "genres": "Animation, Comedy, Fantasy",
-            "dir_cre": "Scott Mosier, Yarrow Cheney",
-            "length": "1h 25m",
-            "rating": "7.5"
-        },
-        {
-            "name": "A Quiet Place",
-            "image": "https://www.themoviedb.org/t/p/original/nAU74GmpUk7t5iklEp3bufwDq4n.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/447332-a-quiet-place",
-            "imdb": "https://www.imdb.com/title/tt6644200",
-            "trakt": "https://trakt.tv/movies/a-quiet-place-2018",
-            "genres": "orror, Drama, Sci-Fi",
-            "dir_cre": "John Krasinski",
-            "length": "1h 31m",
-            "rating": "9.5"
-        },
-        {
             "name": "Prisoners",
             "image": "https://www.themoviedb.org/t/p/original/tuZhZ6biFMr5n9YSVuHOJnNL1uU.jpg",
             "tmdb": "https://www.themoviedb.org/movie/146233-prisoners",
@@ -331,28 +309,6 @@
             "rating": "10"
         },
         {
-            "name": "Sully",
-            "image": "https://www.themoviedb.org/t/p/original/5L29r3uwDe49XDMaK2xDkDht9t0.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/363676-sully",
-            "imdb": "https://www.imdb.com/title/tt3263904",
-            "trakt": "https://trakt.tv/movies/sully-2016",
-            "genres": "Drama, History",
-            "dir_cre": "Clint Eastwood",
-            "length": "1h 36m",
-            "rating": "8.5"
-        },
-        {
-            "name": "The Interview",
-            "image": "https://www.themoviedb.org/t/p/original/tIDC4xT65l7a8qbgg8GvwD5g8c5.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/228967-the-interview",
-            "imdb": "https://www.imdb.com/title/tt2788710",
-            "trakt": "https://trakt.tv/movies/the-interview-2014",
-            "genres": "Comedy, Action",
-            "dir_cre": "Seth Rogen, Evan Goldberg",
-            "length": "1h 53m",
-            "rating": "10"
-        },
-        {
             "name": "The Truman Show",
             "image": "https://www.themoviedb.org/t/p/original/bDohw4b035IOJ9SPaw9lpNhZMyB.jpg",
             "tmdb": "https://www.themoviedb.org/movie/37165-the-truman-show",
@@ -361,72 +317,17 @@
             "genres": "Comedy, Drama",
             "dir_cre": "Peter Weir",
             "length": "1h 43m",
-            "rating": "9"
-        },
-        {
-            "name": "Captain Fantastic",
-            "image": "https://www.themoviedb.org/t/p/original/2sFME73GaD8UsUxPUKe60cPdLif.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/334533-captain-fantastic",
-            "imdb": "https://www.imdb.com/title/tt3553976",
-            "trakt": "https://trakt.tv/movies/captain-fantastic-2016",
-            "genres": "Drama, Adventure",
-            "dir_cre": "Matt Ross",
-            "length": "1h 58m",
             "rating": "8.5"
         },
         {
-            "name": "BlacKkKlansman",
-            "image": "https://www.themoviedb.org/t/p/original/55W6mUVv4CXMMQHHhV2zXtLSpXQ.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/487558-black-klansman",
-            "imdb": "https://www.imdb.com/title/tt7349662/",
-            "trakt": "https://trakt.tv/movies/blackkklansman-2018",
-            "genres": "Crime, History, Comedy",
-            "dir_cre": "Spike Lee",
-            "length": "2h 15m",
-            "rating": "8.5"
-        },
-        {
-            "name": "The Guilty",
-            "image": "https://www.themoviedb.org/t/p/original/ufnvbow1VTjWHpWlYgYBsNDR0Kz.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/567748-the-guilty",
-            "imdb": "https://www.imdb.com/title/tt9421570",
-            "trakt": "https://trakt.tv/movies/the-guilty-2021",
-            "genres": "hriller, Drama",
-            "dir_cre": "Antoine Fuqua",
-            "length": "1h 31m",
-            "rating": "8"
-        },
-        {
-            "name": "Kevin & Perry Go Large",
-            "image": "https://www.themoviedb.org/t/p/original/zwWoCdn8s3qCnJKOOsmK1XxV1yE.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/10597-kevin-and-perry-go-large",
-            "imdb": "https://www.imdb.com/title/tt0205177",
-            "trakt": "https://trakt.tv/movies/kevin-perry-go-large-2000",
-            "genres": "Comedy, Music, Holiday",
-            "dir_cre": "Ed Bye",
-            "length": "1h 22m",
-            "rating": "10"
-        },
-        {
-            "name": "Burnt",
-            "image": "https://www.themoviedb.org/t/p/original/iptu4zfvbeULkeuoVkTl2mOqTPS.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/295964-untitled-john-wells-project",
-            "imdb": "https://www.imdb.com/title/tt2503944",
-            "trakt": "https://trakt.tv/movies/burnt-2015",
+            "name": "The Forgiven",
+            "image": "https://www.themoviedb.org/t/p/original/yDBGU6fyIQ1nK4pQWSIka9Rvnb6.jpg",
+            "tmdb": "https://www.themoviedb.org/movie/522927-the-forgiven",
+            "imdb": "https://www.imdb.com/title/tt3696180/",
+            "trakt": "https://trakt.tv/movies/the-forgiven-2022",
             "genres": "Drama",
-            "dir_cre": "John Wells",
-            "length": "1h 40m",
-            "rating": "8.5"
-        },
-        {
-            "name": "tick, tick... BOOM!",
-            "image": "https://www.themoviedb.org/t/p/original/DPmfcuR8fh8ROYXgdjrAjSGA0o.jpg",
-            "tmdb": "https://www.themoviedb.org/movie/537116-tick-tick-boom",
-            "imdb": "https://www.imdb.com/title/tt8721424",
-            "trakt": "https://trakt.tv/movies/tick-tick-boom-2021",
-            "genres": "Drama, Musical",
-            "dir_cre": "Lin-Manuel Miranda",
-            "length": "2h",
+            "dir_cre": "John Michael McDonagh",
+            "length": "1h 57m",
             "rating": "9"
         }
     ],
@@ -532,17 +433,6 @@
             "rating": "9"
         },
         {
-            "name": "Tom Clancy's Jack Ryan",
-            "image": "https://www.themoviedb.org/t/p/original/joxZpmDGZCIa65fh0GkuRqdcJkb.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/73375-jack-ryan",
-            "imdb": "https://www.imdb.com/title/tt5057054",
-            "trakt": "https://trakt.tv/shows/tom-clancy-s-jack-ryan",
-            "genres": "Action, War, Thriller",
-            "dir_cre": "Carlton Cuse, Graham Roland",
-            "length": "~60m",
-            "rating": "8.5"
-        },
-        {
             "name": "Dark",
             "image": "https://www.themoviedb.org/t/p/original/apbrbWs8M9lyOpJYU5WXrpFbk1Z.jpg",
             "tmdb": "https://www.themoviedb.org/tv/70523-dark",
@@ -563,39 +453,6 @@
             "dir_cre": "Greg Daniels, Ricky Gervais",
             "length": "~22m",
             "rating": "10"
-        },
-        {
-            "name": "You",
-            "image": "https://www.themoviedb.org/t/p/original/9qZUrhcFVI9MNznVJxdfcrmifof.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/78191-you",
-            "imdb": "https://www.imdb.com/title/tt7335184",
-            "trakt": "https://trakt.tv/shows/you",
-            "genres": "Crime, Drama, Mystery",
-            "dir_cre": "Greg Berlanti, Sera Gamble",
-            "length": "~46m",
-            "rating": "8"
-        },
-        {
-            "name": "The Flight Attendant",
-            "image": "https://www.themoviedb.org/t/p/original/Aw8sdpX1cvouqQz8SnxC76etn4K.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/93287-the-flight-attendant",
-            "imdb": "https://www.imdb.com/title/tt7569576",
-            "trakt": "https://trakt.tv/shows/the-flight-attendant",
-            "genres": "Drama, Mystery, Comedy",
-            "dir_cre": "Steve Yockey",
-            "length": "~48m",
-            "rating": "7"
-        },
-        {
-            "name": "Dave",
-            "image": "https://www.themoviedb.org/t/p/original/qxjZp09DCBywLN7sQPYHk6nRyZu.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/97084-dave",
-            "imdb": "https://www.imdb.com/title/tt8531222/",
-            "trakt": "https://trakt.tv/shows/dave",
-            "genres": "Comedy",
-            "dir_cre": "Dave Burd, Jeff Schaffer",
-            "length": "~30m",
-            "rating": "8"
         },
         {
             "name": "Lost",
@@ -640,28 +497,6 @@
             "dir_cre": "Eric Kripke",
             "length": "~60m",
             "rating": "9"
-        },
-        {
-            "name": "The White Lotus",
-            "image": "https://www.themoviedb.org/t/p/original/4gBYNDdczkFOqjR4dgYamqbp6cS.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/111803-the-white-lotus",
-            "imdb": "https://www.imdb.com/title/tt13406094/",
-            "trakt": "https://trakt.tv/shows/the-white-lotus",
-            "genres": "Comedy, Thriller, Mystery",
-            "dir_cre": "Mike White",
-            "length": "~54m",
-            "rating": "9"
-        },
-        {
-            "name": "Yellowjackets",
-            "image": "https://www.themoviedb.org/t/p/original/6NtCpGAX8PYPcp2iMjlQMTuVvw8.jpg",
-            "tmdb": "https://www.themoviedb.org/tv/117488-yellowjackets",
-            "imdb": "https://www.imdb.com/title/tt11041332",
-            "trakt": "https://trakt.tv/shows/yellowjackets",
-            "genres": "Drama, Mystery",
-            "dir_cre": "Ashley Lyle, Bart Nickerson",
-            "length": "~57m",
-            "rating": "8.5"
         },
         {
             "name": "Your Honor",
