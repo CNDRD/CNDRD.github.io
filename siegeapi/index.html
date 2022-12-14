@@ -18,6 +18,7 @@
     <div id="version-switcher">
         <h3>Version:</h3>
         <select id="version-select">
+            <option selected value="5">5</option>
             <option value="4">4</option>
         </select>
     </div>
@@ -25,7 +26,7 @@
 
     
     <!-- Auth v1+ -->
-    <div class="class" data-class-name="Auth" data-versions="1,2,3,4">
+    <div class="class" data-class-name="Auth" data-versions="1,2,3,4,5">
         <div class="name">Auth</div>
 
         <div class="params">
@@ -320,6 +321,176 @@
     </div>
 
 
+    <!-- Player v5+ -->
+    <div class="class" data-class-name="Player" data-versions="5">
+        <div class="name">Player</div>
+
+        <div class="attrs">
+            <ul>
+                <li>id <code><span data-type="str"></span></code> => Ubi user ID</li>
+                <li>profile_pic_url_146  <code><span data-type="str"></span></code> => 146px×146px profile pic URL</li>
+                <li>profile_pic_url_256  <code><span data-type="str"></span></code> => 256px×256px profile pic URL</li>
+                <li>profile_pic_url_500  <code><span data-type="str"></span></code> => 500px×500px profile pic URL</li>
+                <li>profile_pic_url  <code><span data-type="str"></span></code> => Alias for <code>profile_pic_256</code></li>
+                <li>name <code><span data-type="str"></span></code></li>
+                <li>level <code><span data-type="int"></span></code></li>
+                <li>alpha_pack <code><span data-type="float"></span></code></li>
+                <li>xp <code><span data-type="int"></span></code> => XP user has in the current level</li>
+                <li>total_xp <code><span data-type="int"></span></code></li>
+                <li>xp_to_level_up <code><span data-type="int"></span></code></li>
+                <li>total_time_played <code><span data-type="int"></span></code> => in seconds</li>
+                <li>pvp_time_played <code><span data-type="int"></span></code> => in seconds</li>
+                <li>pve_time_played <code><span data-type="int"></span></code> => in seconds</li>
+                <li>rank_skill_records <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="{}"></span></code></li>
+                <li>casual_skill_records <code><span data-type="dict"></span>[<span data-type="int"></span>: <span data-type="dict"></span>[<span data-type="str"></span>: <span data-cls="Rank"></span> | <span data-type="None"></span>]] | <span data-type="{}"></span></code></li>
+                <li>ranked_summary <code> <span data-type="dict"></span>[<span data-type="int"></span>: <span data-cls="Summary"></span>] | <span data-type="{}"></span></code></li>
+                <li>casual_summary <code> <span data-type="dict"></span>[<span data-type="int"></span>: <span data-cls="Summary"></span>] | <span data-type="{}"></span></code></li>
+                <li>unranked_summary <code> <span data-type="dict"></span>[<span data-type="int"></span>: <span data-cls="Summary"></span>] | <span data-type="{}"></span></code></li>
+                <li>all_summary <code> <span data-type="dict"></span>[<span data-type="int"></span>: <span data-cls="Summary"></span>] | <span data-type="{}"></span></code></li>
+                <li>weapons <code><span data-cls="Weapons"></span></code></li>
+                <li>trends <code><span data-cls="Trends"></span></code></li>
+                <li>operators <code><span data-cls="Operators"></span></code></li>
+                <li>maps <code><span data-cls="Maps"></span></code></li>
+            </ul>
+            <div class="comment">
+                <code>total_xp</code> & <code>xp_to_level_up</code> are both calculated from <code>xp</code>
+                <br />
+                They are not provided by Ubisofts API, but are correct.
+            </div>
+        </div>
+
+        <div class="methods">
+            <ul>
+                <!-- set_timespan_dates -->
+                <li>
+                    <details>
+                        <summary>set_timespan_dates(<span data-type="start_date"></span>, <span data-type="end_date"></span>)</summary>
+                        <ul>
+                            <li>start_date <code><span data-type="str"></span></code></li>
+                            <li>end_date <code><span data-type="str"></span></code></li>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Both dates must be in the format <code>YYYY-MM-DD</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_playtime -->
+                <li>
+                    <details>
+                        <summary>load_playtime()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>pvp_time_played</code>, <code>pve_time_played</code> & <code>total_time_played</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_progress -->
+                <li>
+                    <details>
+                        <summary>load_progress()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>alpha_pack</code>, <code>level</code>, <code>xp</code>, <code>total_xp</code> & <code>xp_to_level_up</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_skill_records -->
+                <li>
+                    <details>
+                        <summary>load_skill_records(<span data-type="seasons"></span>, <span data-type="boards"></span>, <span data-type="regions"></span>)</summary>
+                        <ul>
+                            <li>seasons <code><span data-type="list">[<span data-type="int"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li>boards <code><span data-type="list">[<span data-type="str"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li>regions <code><span data-type="list">[<span data-type="str"></span>]</span> = <span data-type="None"></span></code></li>
+                            <li class="returns"><code><span data-type="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            Loads <code>alpha_pack</code>, <code>level</code>, <code>xp</code>, <code>total_xp</code> & <code>xp_to_level_up</code>
+                        </div>
+                        <div class="comment">
+                            Valid seasons are <code>6 - 28</code>; Each season is a <code>+1</code> (e.g. <code>Y7S3</code> is <code>27</code>)
+                            <br />
+                            You can also go from <code>-1</code> where <code>-1</code> is the current season
+                        </div>
+                        <div class="comment">
+                            Valid boards: <code>pvp_ranked</code> & <code>pvp_casual</code>
+                        </div>
+                        <div class="comment">
+                            Valid regions: <code>emea</code>, <code>ncsa</code>, <code>apac</code> & <code>global</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_summaries -->
+                <li>
+                    <details>
+                        <summary>load_summaries(<span data-type="gamemodes"></span>, <span data-type="team_roles"></span>, <span data-type="seasons"></span>)</summary>
+                        <ul>
+                            <li>gamemodes <code><span data-type="list"></span>[<span data-type="str"></span>] = <span data-type="None"></span></code></li>
+                            <li>team_roles <code><span data-type="list"></span>[<span data-type="str"></span>] = <span data-type="None"></span></code></li>
+                            <li>seasons <code><span data-type="list"></span>[<span data-type="str"></span>] = <span data-type="None"></span></code></li>
+                            <li class="returns"><code><span data-cls="None"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <b>gamemodes</b> valid values are "all", "ranked", "unranked", "casual"
+                        </div>
+                        <div class="comment">
+                            <b>team_roles</b> valid values are "all", "Attack", "Defense"
+                        </div>
+                        <div class="comment">
+                            <b>seasons</b> valid values are all seasonal codes found in <code>siegeapi/constants/seasons.py</code>
+                        </div>
+                    </details>
+                </li>
+                <!-- load_trends -->
+                <li>
+                    <details>
+                        <summary>load_trends()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Trends"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <!-- load_weapons -->
+                <li>
+                    <details>
+                        <summary>load_weapons()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Weapons"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+                <!-- load_operators -->
+                <li>
+                    <details>
+                        <summary>load_operators(<span data-type="op_about"></span>)</summary>
+                        <ul>
+                            <li>op_about <code><span data-type="bool"></span> = <span data-type="False"></span></code></li>
+                            <li class="returns"><code><span data-cls="Operators"></span></code></li>
+                        </ul>
+                        <div class="comment">
+                            <code>op_about = True</code> adds a bunch of extra information about the operator
+                        </div>
+                    </details>
+                </li>
+                <!-- load_maps -->
+                <li>
+                    <details>
+                        <summary>load_maps()</summary>
+                        <ul>
+                            <li class="returns"><code><span data-cls="Maps"></span></code></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
     
     <!-- Rank v2+ -->
     <div class="class" data-class-name="Rank" data-versions="2,3,4">
@@ -371,9 +542,54 @@
     </div>
 
 
+    <!-- Summaries v5+ -->
+    <div class="class subclass" data-class-name="Summary" data-versions="5">
+        <div class="name">Summary</div>
+
+        <div class="attrs">
+            <ul>
+                <li>map_name <code><span data-type="str"></span></code></li>
+                <li>matches_played <code><span data-type="int"></span></code></li>
+                <li>rounds_played <code><span data-type="int"></span></code></li>
+                <li>minutes_played <code><span data-type="int"></span></code></li>
+                <li>matches_won <code><span data-type="int"></span></code></li>
+                <li>matches_lost <code><span data-type="int"></span></code></li>
+                <li>rounds_won <code><span data-type="int"></span></code></li>
+                <li>rounds_lost <code><span data-type="int"></span></code></li>
+                <li>kills <code><span data-type="int"></span></code></li>
+                <li>assists <code><span data-type="int"></span></code></li>
+                <li>death <code><span data-type="int"></span></code></li>
+                <li>headshots <code><span data-type="int"></span></code></li>
+                <li>melee_kills <code><span data-type="int"></span></code></li>
+                <li>team_kills <code><span data-type="int"></span></code></li>
+                <li>opening_kills <code><span data-type="int"></span></code></li>
+                <li>opening_deaths <code><span data-type="int"></span></code></li>
+                <li>trades <code><span data-type="int"></span></code></li>
+                <li>opening_kill_trades <code><span data-type="int"></span></code></li>
+                <li>opening_death_trades <code><span data-type="int"></span></code></li>
+                <li>revives <code><span data-type="int"></span></code></li>
+                <li>win_loss_ratio <code><span data-type="float"></span></code></li>
+                <li>kill_death_ratio <code><span data-type="float"></span></code></li>
+                <li>headshot_accuracy <code><span data-type="float"></span></code></li>
+                <li>kills_per_round <code><span data-type="float"></span></code></li>
+                <li>rounds_with_a_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_multi_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_opening_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_opening_death <code><span data-type="float"></span></code></li>
+                <li>rounds_with_kost <code><span data-type="float"></span></code></li>
+                <li>rounds_survived <code><span data-type="float"></span></code></li>
+                <li>rounds_with_an_ace <code><span data-type="float"></span></code></li>
+                <li>rounds_with_clutch <code><span data-type="float"></span></code></li>
+                <li>time_alive_per_match <code><span data-type="float"></span></code></li>
+                <li>time_dead_per_match <code><span data-type="float"></span></code></li>
+                <li>distance_per_round <code><span data-type="float"></span></code></li>
+            </ul>
+        </div>
+    </div>
+
     
     <!-- Trends v4+ -->
-    <div class="class" data-class-name="Trends" data-versions="4">
+    <div class="class" data-class-name="Trends" data-versions="4,5">
         <div class="name">Trends</div>
 
         <div class="attrs">
@@ -407,7 +623,7 @@
     </div>
 
     <!-- TrendsGameMode v4+ -->
-    <div class="class subclass" data-class-name="TrendsGameMode" data-versions="4">
+    <div class="class subclass" data-class-name="TrendsGameMode" data-versions="4,5">
         <div class="name">TrendsGameMode</div>
 
         <div class="attrs">
@@ -421,7 +637,7 @@
     </div>
 
     <!-- TrendData v4+ -->
-    <div class="class subclass" data-class-name="TrendData" data-versions="4">
+    <div class="class subclass" data-class-name="TrendData" data-versions="4,5">
         <div class="name">TrendData</div>
 
         <div class="attrs">
@@ -444,7 +660,7 @@
     </div>
 
     <!-- TrendDataPoint v4+ -->
-    <div class="class subclass" data-class-name="TrendDataPoint" data-versions="4">
+    <div class="class subclass" data-class-name="TrendDataPoint" data-versions="4,5">
         <div class="name">TrendDataPoint</div>
 
         <div class="attrs">
@@ -462,7 +678,7 @@
 
 
     <!-- Weapons v4+ -->
-    <div class="class" data-class-name="Weapons" data-versions="4">
+    <div class="class" data-class-name="Weapons" data-versions="4,5">
         <div class="name">Weapons</div>
 
         <div class="attrs">
@@ -496,7 +712,7 @@
     </div>
 
     <!-- WeaponsRole v4+ -->
-    <div class="class subclass" data-class-name="WeaponsRole" data-versions="4">
+    <div class="class subclass" data-class-name="WeaponsRole" data-versions="4,5">
         <div class="name">WeaponsRole</div>
 
         <div class="attrs">
@@ -509,7 +725,7 @@
     </div>
 
     <!-- WeaponsGameMode v4+ -->
-    <div class="class subclass" data-class-name="WeaponsGameMode" data-versions="4">
+    <div class="class subclass" data-class-name="WeaponsGameMode" data-versions="4,5">
         <div class="name">WeaponsGameMode</div>
 
         <div class="attrs">
@@ -522,7 +738,7 @@
     </div>
 
     <!-- Weapon v4+ -->
-    <div class="class subclass" data-class-name="Weapon" data-versions="4">
+    <div class="class subclass" data-class-name="Weapon" data-versions="4,5">
         <div class="name">Weapon</div>
 
         <div class="attrs">
@@ -599,7 +815,7 @@
 
     </div>
 
-    <!-- Operator v4+ -->
+    <!-- Operator v4 -->
     <div class="class subclass" data-class-name="Operator" data-versions="4">
         <div class="name">Operator</div>
 
@@ -668,10 +884,75 @@
         </div>
     </div>
 
+    <!-- Operator v5+ -->
+    <div class="class subclass" data-class-name="Operator" data-versions="5">
+        <div class="name">Operator</div>
+
+        <div class="attrs">
+            <ul>
+                <li>name <code><span data-type="str"></span></code></li>
+                <li>matches_played <code><span data-type="int"></span></code></li>
+                <li>rounds_played <code><span data-type="int"></span></code></li>
+                <li>minutes_played <code><span data-type="int"></span></code></li>
+                <li>matches_won <code><span data-type="int"></span></code></li>
+                <li>matches_lost <code><span data-type="int"></span></code></li>
+                <li>rounds_won <code><span data-type="int"></span></code></li>
+                <li>rounds_lost <code><span data-type="int"></span></code></li>
+                <li>kills <code><span data-type="int"></span></code></li>
+                <li>assists <code><span data-type="int"></span></code></li>
+                <li>death <code><span data-type="int"></span></code></li>
+                <li>headshots <code><span data-type="int"></span></code></li>
+                <li>melee_kills <code><span data-type="int"></span></code></li>
+                <li>team_kills <code><span data-type="int"></span></code></li>
+                <li>opening_kills <code><span data-type="int"></span></code></li>
+                <li>opening_deaths <code><span data-type="int"></span></code></li>
+                <li>trades <code><span data-type="int"></span></code></li>
+                <li>opening_kill_trades <code><span data-type="int"></span></code></li>
+                <li>opening_death_trades <code><span data-type="int"></span></code></li>
+                <li>revives <code><span data-type="int"></span></code></li>
+                <li>win_loss_ratio <code><span data-type="float"></span></code></li>
+                <li>kill_death_ratio <code><span data-type="float"></span></code></li>
+                <li>headshot_accuracy <code><span data-type="float"></span></code></li>
+                <li>kills_per_round <code><span data-type="float"></span></code></li>
+                <li>rounds_with_a_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_multi_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_opening_kill <code><span data-type="float"></span></code></li>
+                <li>rounds_with_opening_death <code><span data-type="float"></span></code></li>
+                <li>rounds_with_kost <code><span data-type="float"></span></code></li>
+                <li>rounds_survived <code><span data-type="float"></span></code></li>
+                <li>rounds_with_an_ace <code><span data-type="float"></span></code></li>
+                <li>rounds_with_clutch <code><span data-type="float"></span></code></li>
+                <li>time_alive_per_match <code><span data-type="float"></span></code></li>
+                <li>time_dead_per_match <code><span data-type="float"></span></code></li>
+                <li>distance_per_round <code><span data-type="float"></span></code></li>
+            </ul>
+        </div>
+
+        <div class="attrs">
+            <ul>
+                <li>icon_url <code><span data-type="str"></span></code> => Imgur URL</li>
+                <li>real_name <code><span data-type="str"></span></code> => e.g.: <code>Anja Katarina Janković</code></li>
+                <li>birth_place <code><span data-type="str"></span></code> => e.g.: <code>Split, Croatia</code></li>
+                <li>date_of_birth <code><span data-type="str"></span></code> => e.g.: <code>April 29th</code></li>
+                <li>age <code><span data-type="str"></span></code> => e.g.: <code>27</code></li>
+                <li>roles <code><span data-type="list"></span>[<span data-type="str"></span>]</code> => e.g.: <code>["Intel Gatherer", "Area Denial", "Anti Roam"]</code></li>
+                <li>unit <code><span data-type="str"></span></code> => e.g.: <code>NIGHTHAVEN</code></li>
+                <li>country_code <code><span data-type="str"></span></code> => ISO 3166-1 alpha-2 country code; e.g.: <code>HR</code></li>
+                <li>season_introduced <code><span data-type="str"></span></code> => e.g.: <code>Y6S3</code></li>
+            </ul>
+            <div class="comment">
+                These attributes are only present when calling <code><span data-cls="Player"></span><span data-type=".load_operators()"></span></code>
+                <br />
+                With the <code><span data-type="op_about"></span></code> parameter set to <code><span data-type="True"></span></code>
+                <br />
+                (Added by me, not by the API. If there's something wrong with these, please let me know.)
+            </div>
+        </div>
+    </div>
 
 
     <!-- Maps v4+ -->
-    <div class="class" data-class-name="Maps" data-versions="4">
+    <div class="class" data-class-name="Maps" data-versions="4,5">
         <div class="name">Maps</div>
 
         <div class="attrs">
@@ -705,7 +986,7 @@
     </div>
 
     <!-- MapRoles v4+ -->
-    <div class="class subclass" data-class-name="MapRoles" data-versions="4">
+    <div class="class subclass" data-class-name="MapRoles" data-versions="4,5">
         <div class="name">MapRoles</div>
 
         <div class="attrs">
@@ -718,7 +999,7 @@
     </div>
 
     <!-- Map v4+ -->
-    <div class="class subclass" data-class-name="Map" data-versions="4">
+    <div class="class subclass" data-class-name="Map" data-versions="4,5">
         <div class="name">Map</div>
 
         <div class="attrs">
